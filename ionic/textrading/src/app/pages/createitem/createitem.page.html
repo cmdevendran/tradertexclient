@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Post Advertisement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+    <form [formGroup]="postitem" (ngSubmit)="submit()" novalidate>
+
+    <ion-item>
+      <ion-label position="floating">Category</ion-label>
+
+  
+      <ion-select formControlName="item_cat" multiple="false" cancelText="Cancel" okText="Ok">
+
+        <ion-select-option *ngFor="let cat of categories; index as i" value="{{cat.cat_name}}">{{cat.cat_name}}</ion-select-option>
+      </ion-select>
+      </ion-item>
+
+    <ion-item padding-top>
+      <ion-label position="floating">Description</ion-label>
+
+      <ion-input type="text"  formControlName="item_desc"></ion-input>
+    </ion-item>
+    <ion-item>
+
+          <ion-label position="floating">Qty</ion-label>
+
+          <ion-input type="text"  formControlName="item_qty"></ion-input>
+          </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Price</ion-label>
+              <ion-input type="text" placeholder="Price" formControlName="item_price"></ion-input>
+          </ion-item>
+          <ion-item>
+
+          <ion-label position="floating">UOM</ion-label>
+
+          <ion-select formControlName="item_uom">
+            <ion-select-option value="KG">KG</ion-select-option>
+            <ion-select-option value="METRE">METRE</ion-select-option>
+            <ion-select-option value="TON">TON</ion-select-option>
+            <ion-select-option value="PCS">PCS</ion-select-option>
+            <ion-select-option value="Nos">No</ion-select-option>
+
+          </ion-select>
+   
+  </ion-item>
+      <ion-item>
+ 
+               <ion-label position="floating">Currency</ion-label>
+
+          <ion-select placeholder="Currency" formControlName="item_cur">
+            <ion-select-option value="USD">USD</ion-select-option>
+            <ion-select-option value="INR">INR</ion-select-option>
+            <ion-select-option value="EUR">EUR</ion-select-option>
+            <ion-select-option value="SGD">SGD</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">About Item you buy\sell</ion-label>
+          <ion-textarea formControlName="item_remark"></ion-textarea>
+        </ion-item>
+       <!--  <ion-item>
+          <ion-tags-input [(ngModel)]="tags" [once]="'true'" [color]="'secondary'" (onChange)="onChange($event)"></ion-tags-input>
+
+        </ion-item> -->
+
+        <ion-grid>
+          <ion-row>
+              <ion-col size-sm="6" size="6" class="ion-text-center">
+                  <ion-button expand="full" color="danger" (click)='submit("BUY")' class="ion-text-wrap min-max-width">BUY</ion-button>
+              </ion-col>
+      
+              <ion-col size-sm="6" size="6" class="ion-text-center">
+                  <ion-button expand="full" color="success" (click)='submit("SELL")' class="ion-text-wrap min-max-width">SELL</ion-button>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+
+
+    
+
+
+
+    </form>
+
+
+
+</ion-content>

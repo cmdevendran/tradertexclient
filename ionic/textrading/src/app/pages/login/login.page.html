@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="fullheight xc">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+  <ion-list no-lines padding-top>
+    <ion-item>
+      <ion-input type="text" placeholder="Phone Number" formControlName="mobilenumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="tel" placeholder="Pin Number" formControlName="pinnumber"></ion-input>
+    </ion-item>
+    <ion-button type ="submit" expand="block" color="danger">Login</ion-button>
+
+  <div padding-top>
+    <button ion-button block color="DodgerBlue" clear (click)="signupPage();">If new member ? SIGNUP</button>
+   
+  </div>
+  <div>
+    <button ion-button block color="light" clear (click)="forgotPasswordPage();">Forgot Password</button>
+  </div>
+
+  </ion-list>
+
+
+
+    </form>
+
+
+</div>
+
+</ion-content>

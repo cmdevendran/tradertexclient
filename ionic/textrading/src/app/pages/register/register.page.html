@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  <div class="fullheight xc">
+    <form [formGroup]="registerForm" (ngSubmit)="submitForm()" novalidate>
+      <ion-item>
+        <ion-input type="text" placeholder="Phone Number" formControlName="mobileNumber"></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobileNumber.errors?.required">
+        Mobile number is required.
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobileNumber.errors?.pattern">
+        Only numerical values allowed.
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobileNumber.errors?.maxlength">
+        Only max 13 characters allowed
+      </span>
+
+      <ion-item>
+        <ion-input type="tel" placeholder="Pin Number" formControlName="pinNumber1"></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pinNumber1.errors?.required">
+       Pin Number is required.
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pinNumber1.errors?.pattern">
+        Only numerical values allowed.
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pinNumber1.errors?.minlength">
+       Minimum 8 characters required
+      </span>
+      <ion-item>
+        <ion-input type="tel" placeholder="Re enter Pin Number" formControlName="pinNumber2"></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pinNumber2.errors?.required">
+        Pin Number is required.
+       </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pinNumber2.errors?.pattern">
+        Only numerical values allowed.
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pinNumber2.errors?.minlength">
+        Minimum 8 characters required
+       </span>
+      <ion-button type ="submit" expand="block" color="danger">Register</ion-button>
+
+      <div padding-top>
+        <button ion-button block color="DodgerBlue" clear (click)="Login();">Already a member ? LOGIN</button>
+
+      </div>
+    </form>
+  </div>
+</ion-list>
+</ion-content>
