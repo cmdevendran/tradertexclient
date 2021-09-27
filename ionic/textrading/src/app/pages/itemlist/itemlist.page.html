@@ -9,10 +9,41 @@
 
 <ion-content>
 
-<ion-card *ngFor="let i of items">
-  <ion-item >
-    test
+  
+
+<ion-card *ngFor= "let i of items">
+  <ion-card-header color="primary">
+    <ion-card-subtitle>{{i.item_desc}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-item>
+    <ion-label> {{i.item_remark}}</ion-label>
   </ion-item>
+  <ion-item>
+    <ion-label>Price : {{i.item_cur}} {{i.item_price}} /{{i.item_uom}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Qty : {{i.item_qty}} {{i.item_uom}}</ion-label>
+  </ion-item>
+  <ion-item>
+   <ion-grid>
+     <ion-row>
+       <ion-col>
+        {{i.item_posteddate}}
+       </ion-col>
+       <ion-col>
+        Posted By : {{i.item_postedby}}
+       </ion-col>
+     </ion-row>
+   </ion-grid>
+
+
+  </ion-item>
+  
+
+
 </ion-card>
+
+
 
 </ion-content>                                                                 

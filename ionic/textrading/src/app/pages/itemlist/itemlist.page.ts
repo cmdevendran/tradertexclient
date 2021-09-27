@@ -23,12 +23,13 @@ export class ItemlistPage implements OnInit {
     private router: Router,
     private databaseprovider: DatabaseService, 
    ) {
+     var category;
     console.log("STarting constructor.....")
-    if (router.getCurrentNavigation().extras.queryParams) {
-      this.items = this.router.getCurrentNavigation().extras.queryParams;
+    if (router.getCurrentNavigation().extras.state) {
+      category = this.router.getCurrentNavigation().extras.state;
       console.log("state : "+ this.items) 
     }
-    //this.getitemlist()
+    this.getitemlist(category)
 
     }
 
@@ -38,13 +39,15 @@ export class ItemlistPage implements OnInit {
 
   }
 
-  getitemlist(){
+  getitemlist(category){
     console.log("itempage nginitccc")
    
       this.databaseprovider.getSession("session").then(data => {
         var session = data;
-        this.auth.getAllItems(session,this.item_id).subscribe(data=>{
+        this.auth.getAllItems(session,category).subscribe(data=>{
           this.items = data;
+          console.log(             "ITEMS : "+ JSON.stringify(this.items)
+          )
 
         })
         
